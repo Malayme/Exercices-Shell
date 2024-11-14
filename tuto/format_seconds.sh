@@ -5,12 +5,13 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-secondes=$1
+minutes=$(($1 / 60))
+secondes=$(($1 % 60))
 
-while [ $secondes -ge 60 ]; do
-    secondes=$(($secondes-60))
-    minutes=$(($minutes+1))
-    echo "$minutes : $secondes"
-done
+if [ $secondes -lt 10 ]; then
+    secondes="0$secondes"
+fi 
+
+echo "$minutes:$secondes"
 
 #transforme les secondes en minutes
