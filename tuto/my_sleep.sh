@@ -5,13 +5,13 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-seconds=$1
-start=$(date +%s)
+$1
+passe=$(date +%s)
 
 while true; do
-    now=$(date +%s)
-    elapsed=$((now - start))
-    if [ $elapsed -ge $seconds ]; then
+    maintenant=$(date +%s)
+    ecoulees=$((maintenant - passe))
+    if [ $ecoulees -ge $1 ]; then
         break
     fi
 done
